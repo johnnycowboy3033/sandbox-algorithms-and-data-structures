@@ -5,16 +5,25 @@ $(function() {
     let x = 40;
     let result = binarySearch(arr, x);
 
+    let writePage = `
+    <span class='title' >====================== Binary Search ======================</span> <br>
+    <span class='title' >====================== Binary Search ======================</span> <br>
+    `
+
+    
+
     for(let i = 0; i < arr.length; i++){
-        console.log(`[ ${i} ] = ${arr[i]}`);
+        writePage = writePage + `<span class='loggingValue'> [ ${i} ] = ${arr[i]} </span><br>`;
     }
 
-    console.log(`Index of the 40 target value: ${result}`);
-    console.log(`Application Title: ${logging[0]}`);
+    writePage = writePage +`<span class='loggingValue'> Index of the 40 target value: ${result} </span><br>`;
+    writePage = writePage +`<span class='loggingValue'> Application Title: ${logging[0]} </span><br>`;
 
     console.log(`### RAW DATA ###`);
     logging.forEach((element) => {
-        console.log( JSON.stringify (element) );
+        writePage = writePage + "<span class='loggingValue'>" + JSON.stringify (element) + "</span><br>";
     });
+
+    $("#logging").html(writePage);
 
 });
