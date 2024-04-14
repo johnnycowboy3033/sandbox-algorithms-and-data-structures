@@ -9,7 +9,6 @@ let counter = 0;
 
 function binarySearch(arr, x)
 {  
-    logging.push("Binary Search");
 
     let h = 0;
     let t = arr.length - 1;

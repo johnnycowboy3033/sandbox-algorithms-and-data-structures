@@ -7,7 +7,12 @@ h1{
   color: blueviolet;
 }
 
+.section{
+  color: blueviolet;
+  margin-left: 40px;
+}
+
 .loggingValue{
-  color:chartreuse;
-  margin-left: 20px;
+  color:purple;
+  margin-left: 40px;
 }
