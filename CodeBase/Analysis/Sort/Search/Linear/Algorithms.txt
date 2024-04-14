@@ -1,0 +1,35 @@
+==================================== 
+Target 3 
+Index 0 Item 1 
+Index 1 Item 2 
+Index 2 Item 3 
+Linear Search Method return value:  2 
+ ==================================== 
+Target 9 
+Index 0 Item 1 
+Index 1 Item 2 
+Index 2 Item 3 
+Index 3 Item 4 
+Index 4 Item 5 
+Index 5 Item 6 
+Index 6 Item 7 
+Index 7 Item 8 
+Index 8 Item 9 
+Linear Search Method return value:  8 
+ ==================================== 
+Target 1 
+Index 0 Item 1 
+Linear Search Method return value:  0 
+ ==================================== 
+Target 0 
+Index 0 Item 1 
+Index 1 Item 2 
+Index 2 Item 3 
+Index 3 Item 4 
+Index 4 Item 5 
+Index 5 Item 6 
+Index 6 Item 7 
+Index 7 Item 8 
+Index 8 Item 9 
+Linear Search Method return value:  -1 
+ 

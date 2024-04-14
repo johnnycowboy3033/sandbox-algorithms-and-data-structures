@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SandBox</title>
+
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <! -- Official Frameworks -- >
+  <link rel="stylesheet" href="../Libraries/Bootstrap/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+
+  <script type= "text/javascript" src="../Libraries/Jquery/jquery-3.7.1.js"></script>
+  <script type= "text/javascript" src="../Libraries/Bootstrap/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+  
+
+  <! -- Custom Libraries  -- >
+  <link rel="stylesheet" href="index.css" rel="stylesheet">
+
+  <script type= "text/javascript" src="./js/models/canvas.model.js"></script>
+  <script type= "text/javascript" src="./js/models/graph.model.js"></script>
+  <script type= "text/javascript" src="./js/Utils/format.util.js"></script>
+  
+  <script type= "text/javascript" src="index.js"></script>
+  
+
+</head>
+<body onload="ready();">
+  <div class="container">
+
+    <div class="logo">
+      <div class="image">
+        <img src="logo.jpg" alt="Logo" width="100px" height="100px">
+      </div>
+      <div class="text">
+        <b>Church of Scyence</b>
+      </div>
+    </div>
+
+    
+
+    <h1> &nbsp; &nbsp; Screen Layout</h1>
+    
+    <canvas id="myCanvas" style="border:3px solid black"></canvas>
+
+    <div class="btn-group">
+      <button id="clear-screen" class="btn btn-primary">Clear Screen</button>
+      <button id="horizotal-arrays" class="btn btn-primary">Horizotal Arrays</button>
+      <button id="vertical-arrays" class="btn btn-primary">Vertical Arrays</button>
+    </div>
+
+  </div>
+
+</body>
+</html>
