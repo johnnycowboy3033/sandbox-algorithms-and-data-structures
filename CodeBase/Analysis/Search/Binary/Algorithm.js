@@ -4,8 +4,8 @@
 // location of x in given array arr[l..r] is present,
 // otherwise -1
 
-let logging = new Array();
-let counter = 0;
+let logging;
+let counter;
 
 function binarySearch(arr, x)
 {  
@@ -13,6 +13,8 @@ function binarySearch(arr, x)
     let h = 0;
     let t = arr.length - 1;
     let mid;
+
+    
 
 
     while (t >= h) {

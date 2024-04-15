@@ -1,0 +1,19 @@
+.title{
+    color: blueviolet;
+  }
+  
+  .subsection{
+    color: red;
+    margin-left: 40px;
+  
+  }
+  
+  .section{
+    color: blueviolet;
+    margin-left: 40px;
+  }
+  
+  .loggingValue{
+    color:purple;
+    margin-left: 40px;
+  }

@@ -1,4 +1,4 @@
-describe("Binary Search Algorithm", function() {
+describe("Linear Search Algorithm", function() {
 
     it("(JASMINE SETUP) Should be true because this test method is for testing the Jasmine setup", function() {
 
@@ -13,9 +13,10 @@ describe("Binary Search Algorithm", function() {
 
         let arr = new Array(0, 10, 20, 30, 40, 50, 60);
         let x = 40;
-        binarySearch(arr, x);
+        logging = new Array();
+        linearSearch(arr, x);
 
-        expect(logging[0]).toEqual("Binary Search");
+        expect(logging.length > 0).toBeTruthy();
 
     });
 
@@ -25,12 +26,14 @@ describe("Binary Search Algorithm", function() {
 
         let arr = new Array(0, 10, 20, 30, 40, 50, 60);
         let x = 40;
-        let result = binarySearch(arr, x);
+        logging = new Array();
+        let result = linearSearch(arr, x);
 
         console.log(`Result = ${result}`);
         expect(result).toEqual(4);
 
       });
+
 
 
   });
