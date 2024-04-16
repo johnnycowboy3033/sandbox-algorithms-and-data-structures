@@ -15,22 +15,29 @@ function bubbleSort(arr){
 
     for(var mainIndex = 0; mainIndex < arr.length - 1; mainIndex++){
 
+      logging.push({  Action:"ITERATION",
+                      message:"========================================================="});
+
             for(var offset = 1 + mainIndex; offset < arr.length; offset++){
-                
+
                 let newMessge = "";
-        
+                let tempPresentArray = arr.slice()
+
                 if (arr[offset] < arr[mainIndex]) {
                     arr = swap(arr, mainIndex, offset);
-
                     newMessge = 'SWAP';
                 }else{
                     newMessge = 'NO SWAP';
                 }
 
-                logging.push({messge:newMessge,mainIndex:mainIndex,offset:offset});
+                logging.push({  Action:"CHECK_SWAPPING",
+                                messge:newMessge,
+                                mainIndex:mainIndex,
+                                offset:offset,
+                                presentArray:tempPresentArray});
 
             }
-         
+
     }
 
 }
