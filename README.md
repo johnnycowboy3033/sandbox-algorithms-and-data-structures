@@ -35,7 +35,13 @@ To run the applcaiton Right Click on the **Algorithm.html** and select **Open wi
 <img src="README/PageWeb.jpg" alt="Applcation Webpage" width="590" height="300">
 
 # References
+## Libraries
 * [Jasmine Test Framework - Official Webpage Site](https://jasmine.github.io/)
 * [JQuery Framework - Official Webpage Site](https://jquery.com/)
+
+## Algorithm
+* [Linear Search in JavaScript - doabledanny.com](https://www.doabledanny.com/linear-search-in-javascript)
 * [Binary Search – Data Structure and Algorithm Tutorials - geeksforgeeks.org](https://www.geeksforgeeks.org/binary-search/)
+* [Bubble Sort algorithm using JavaScript - geeksforgeeks.org](https://www.geeksforgeeks.org/bubble-sort-algorithms-by-using-javascript/)
+* [Insertion Sort – Data Structure and Algorithm Tutorials - geeksforgeeks.org](https://www.geeksforgeeks.org/insertion-sort/)
 * [Merge Sort - JavaScript - doabledanny.com](https://www.doabledanny.com/merge-sort-javascript)

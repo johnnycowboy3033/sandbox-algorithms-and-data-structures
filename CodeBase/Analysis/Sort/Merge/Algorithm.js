@@ -1,40 +1,61 @@
 let logging;
+let counter = 0;
 
-function merge(left, right) {
+function merge(leftArray, rightArray) {
 
-  logging.push({  Action:"INITIALIZE",
-                      message:`=========================================================` });
+  logging.push({  Action:"MERGE_INIT",
+                      message:`${counter++} =========================== MERGE METHOD ===========================` });
 
-    let sortedArr = [] // the sorted items will go here
+  logging.push({  Action:"RECURSIVE_CALLS",message:`LEFT ARRAY : ${ leftArray }`, ArrayElements:leftArray });   
+  logging.push({  Action:"RECURSIVE_CALLS",message:`RIGHT ARRAY : ${ rightArray }`, ArrayElements:rightArray  });  
 
-    while (left.length && right.length) {
+    let sortedArray = [] // the sorted items will go here
+
+    while (leftArray.length && rightArray.length) {
 
       // Insert the smallest item into sortedArr
-      if (left[0] < right[0]) {
-        sortedArr.push(left.shift())
+      if (leftArray[0] < rightArray[0]) {
+        sortedArray.push(leftArray.shift())
       } else {
-        sortedArr.push(right.shift())
+        sortedArray.push(rightArray.shift())
       }
 
     }
 
+    logging.push({  Action:"RECURSIVE_CALLS",message:`SORTED ARRAY : ${ sortedArray }`, ArrayElements:sortedArray });   
+
+    logging.push({  Action:"RECURSIVE_CALLS",message:`RETURNED ARRAY : ${ [...sortedArray, ...leftArray, ...rightArray] }`, ArrayElements:[...sortedArray, ...leftArray, ...rightArray] });  
+
     // Use spread operators to create a new array, combining the three arrays
-    return [...sortedArr, ...left, ...right]
+    return [...sortedArray, ...leftArray, ...rightArray]
   }
 
   function mergeSort(arr) {
 
-    logging.push({  Action:"INITIALIZE",
-                      message:`=========================================================` });
+    logging.push({  Action:"MERGE_SORT_INIT",
+                      message:`${counter++} =========================== MERGE SORT METHOD ===========================` });
+
+    logging.push({  Action:"STOP_CONDITION",
+                      message:`ARRAY LENGTH ${arr.length}. Is the array SORTED ? ${arr.length <= 1}` });                 
 
     // Base case
-    if (arr.length <= 1) return arr
+    if (arr.length <= 1){
 
-    let mid = Math.floor(arr.length / 2)
+      logging.push({  Action:"BASE_CASE",
+                      message:`ARRAY LENGTH ${arr.length}. The Array is ${arr}`, ArrayElements:arr });  
+      return arr;
+    } 
+
+    let mid = Math.floor(arr.length / 2);
+
+    logging.push({  Action:"RECURSIVE_CALLS",message:`LEFT ARRAY : ${ arr.slice(0, mid) }`, ArrayElements:arr.slice(0, mid) });   
+    logging.push({  Action:"RECURSIVE_CALLS",message:`RIGHT ARRAY : ${ arr.slice(mid) }` , ArrayElements:arr.slice(mid)  });  
 
     // Recursive calls
-    let left = mergeSort(arr.slice(0, mid))
-    let right = mergeSort(arr.slice(mid))
+    let left = mergeSort(arr.slice(0, mid));
+    let right = mergeSort(arr.slice(mid));
+
+
 
     return merge(left, right)
   }
