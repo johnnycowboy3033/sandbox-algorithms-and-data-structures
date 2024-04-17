@@ -12,7 +12,7 @@ function swap(_baseArr,_offsetIndex){
 
 let logging;
 
-function binarySort(arr) {
+function bubbleSort(arr) {
 
     for (var mainIndex = 0; mainIndex < arr.length; mainIndex++) {
 
@@ -41,8 +41,8 @@ function binarySort(arr) {
 
             logging.push({  Action:"CHECK_SWAPPING",
                                 messge:newMessge,
-                                mainIndex:mainIndex,
                                 offset:offset,
+                                offsetPlusOne:offset +1,
                                 presentArray:tempPresentArray});
         }
     }

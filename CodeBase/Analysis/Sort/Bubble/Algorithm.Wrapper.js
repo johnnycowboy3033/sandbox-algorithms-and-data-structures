@@ -2,7 +2,7 @@ $(function() {
 
     let format = new Format();
 
-    function printPointers(mainIndex,offset,element){
+    function printPointers(offset,offsetPlusOne,element){
 
         format.loggingValue( '[index] = value ' );
 
@@ -10,16 +10,18 @@ $(function() {
 
             let label = "";
 
-            if(mainIndex == index || offset== index  ){
+            if(offsetPlusOne == index || offset== index  ){
                 label = label + "<---- ";
-
-                if(mainIndex == index){
-                    label = label +" Main";
-                }
 
                 if(offset == index){
                     label = label +" Offset";
                 }
+
+                if(offsetPlusOne == index){
+                    label = label +" Offset Plus One";
+                }
+
+
 
             }
 
@@ -43,7 +45,7 @@ $(function() {
             }
             if(element.Action == 'CHECK_SWAPPING'){
               format.loggingValue( JSON.stringify (element) );
-              printPointers(element.mainIndex,element.offset,element.presentArray) ;
+              printPointers(element.offset, element.offsetPlusOne, element.presentArray) ;
             }
 
             format.newLine();
