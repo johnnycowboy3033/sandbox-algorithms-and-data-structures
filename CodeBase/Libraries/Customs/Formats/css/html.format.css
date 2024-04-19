@@ -9,3 +9,12 @@
 .section{
     color:#c03;
 }
+
+.subsection{
+    color:orangered;
+    margin-left: 40px;
+}
+
+.paragraph{
+    color:blue;
+}

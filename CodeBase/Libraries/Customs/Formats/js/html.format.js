@@ -28,7 +28,13 @@ class Format{
         this.header("h3","section",valueSection);
     }
 
+    subsection(valueSubsetion){
+        this.header("h4","subsection",valueSubsetion);
+    }
 
+    paragraph(valueParagraph){
+        this.builder("<p class='paragraph' >"+valueParagraph+"</p>");
+    }
 
     newLine(){
         this._pageWrite = this._pageWrite + "<br>";
