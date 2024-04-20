@@ -36,10 +36,11 @@ class Format{
         this.builder("<p class='paragraph' >"+valueParagraph+"</p>");
     }
 
-    arrayElement(index,element){
+    arrayElement(index,element,label){
         let htmlIndex = `<span class='array-index' > [ ${index} ] = </span>`;
         let htmlElement = `<span class='array-element' > ${element} </span>`;
-        this.builder(`<p> ${htmlIndex} ${htmlElement} </p>`);
+        let htmlLabel = `<span class='array-label' > ${label} </span>`;
+        this.builder(`<p> ${htmlIndex} ${htmlElement} ${htmlLabel} </p>`);
     }
 
     newLine(){

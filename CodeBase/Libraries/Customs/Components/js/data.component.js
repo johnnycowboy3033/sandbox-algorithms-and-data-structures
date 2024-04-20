@@ -12,13 +12,35 @@ class DataComponent{
     set label(value){this._labels = value;}
 
 
-    printPointers(elements){
+    printPointers(elements, labelIndex){
 
         for( let index = 0; index < elements.length; index++){
 
-            this._format.arrayElement(index, elements[index]);
+            let label = "";
+
+            if(this.isLabelIndex(labelIndex, index)){
+
+                label = label + `<--- ${ this._labels[this.findLabelIndex(labelIndex, index)]}`;
+
+            }
+
+            this._format.arrayElement(index, elements[index], label);
         }
 
-    };
+    }
+
+    isLabelIndex(labelIndex, index){
+
+        return labelIndex.some( (value)=>{ 
+            return value == index
+        });;
+
+    }
+
+    findLabelIndex(labelIndex, index){
+        return labelIndex.findIndex((value)=>{ 
+            return value == index
+        });;
+    }
 
 }
