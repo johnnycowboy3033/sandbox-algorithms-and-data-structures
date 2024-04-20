@@ -36,8 +36,23 @@ class Format{
         this.builder("<p class='paragraph' >"+valueParagraph+"</p>");
     }
 
+    arrayElement(index,element){
+        let htmlIndex = `<span class='array-index' > [ ${index} ] = </span>`;
+        let htmlElement = `<span class='array-element' > ${element} </span>`;
+        this.builder(`<p> ${htmlIndex} ${htmlElement} </p>`);
+    }
+
     newLine(){
         this._pageWrite = this._pageWrite + "<br>";
+    }
+
+    manyNewLine(times){
+
+        for( var index = 0 ; index < times; index++){
+            this.newLine();
+        }
+
+
     }
 
     get pageWrite(){ return this._pageWrite}
