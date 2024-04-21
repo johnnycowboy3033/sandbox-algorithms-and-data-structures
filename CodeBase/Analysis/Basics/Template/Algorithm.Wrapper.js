@@ -1,6 +1,6 @@
 $(function() {
 
-    let format = new Format();
+    let format = new HtmlFormat();
     let data = new DataComponent(['Head','Midpoint','Tail'],format);
 
     format.title("Title");

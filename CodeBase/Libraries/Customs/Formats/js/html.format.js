@@ -1,4 +1,4 @@
-class Format{
+class HtmlFormat{
 
     _pageWrite;
 

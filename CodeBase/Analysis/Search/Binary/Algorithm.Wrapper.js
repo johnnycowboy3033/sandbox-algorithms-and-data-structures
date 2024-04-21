@@ -1,78 +1,16 @@
 $(function() {
 
-    let format = new Format();
+    let format = new HtmlFormat();
+    let data = new DataComponent(['Head','Midpoint','Tail'],format);
 
-    function printPointers(head,middle,tail,element){
-    
-        format.loggingValue( '[index] = value ' );
-        
-        for( let index = 0; index < element.length; index++){
-            
-            let label = "";
-            
-            if(head == index || middle == index || tail == index){
-                label = label + "<---- ";
-                
-                if(head == index){
-                    label = label +" Head";
-                }
-                
-                if(middle == index){
-                    label = label +" Middle";
-                }
-                
-                if(tail == index){
-                    label = label +" Tail";
-                }
-            }
-            
-            
-            
-            format.loggingValue(`[ ${index} ] = ${element[index]}  ${label}`);
-        }
-        
-    };
+    format.title("Title");
+    format.section("Section");
+    format.subsection("Sub Section");
+    format.paragraph(`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum`);
 
-    function Algorithm(arr,x){
-        let result = binarySearch(arr, x);
+    data.printPointers([3,7,9,12,15,23,45],[0, 3, 5]);
 
-        format.title(  `------------ Boundary Condition :  ${x}  ------------ `);
-
-        format.newLine();
-    
-        format.section('STEP THOUGH THE CODE');
-    
-        logging.forEach((element) => {
-            format.subSection( `------------ COUNT = ${element.counter} ------------` );
-            format.loggingValue( JSON.stringify (element) );
-    
-            printPointers(element.header,element.midpoint,element.tail,arr) ;
-            format.newLine();
-        });
-
-        format.subSection (`Index of the ${x} target value: ${result} `); 
-    }
-    logging = new Array();
-    counter = 0;
-    Algorithm(new Array(0, 10, 20, 30, 40, 50, 60),0);
-
-    logging = new Array();
-    counter = 0;
-    Algorithm(new Array(0, 10, 20, 30, 40, 50, 60),30);
-
-
-    logging = new Array();
-    counter = 0;
-    Algorithm(new Array(0, 10, 20, 30, 40, 50, 60),60);
-
-    logging = new Array();
-    counter = 0;
-    Algorithm(new Array(0, 10, 20, 30, 40, 50, 60),100);
-
-    logging = new Array();
-    counter = 0;
-    Algorithm(new Array(-1, 10, 20, 30, 40, 50, 60),-1);
-    
+    format.manyNewLine(6);
    
     $("#logging").html(format.pageWrite);
 
