@@ -26,7 +26,7 @@ class DataComponent{
 
                     if(index == labelIndex[i]){
 
-                        label = label + ` ${ this._labels[labelIndex[i]]}`;
+                        label = label + ` ${ this._labels[i]}`;
 
                     }
 

@@ -14,13 +14,13 @@ $(function() {
 
         logging.forEach((element) => {
             format.subsection( `COUNT = ${element.counter}` );
-            format.paragraph( JSON.stringify (element) );
+            //format.paragraph( JSON.stringify (element) );
     
             data.printPointers(arr,[element.header,element.midpoint,element.tail]);
             format.newLine();
         });
 
-        //format.subSection (`Index of the ${x} target value: ${result} `); 
+        format.subsection (`Index ${x} of the  target value: ${result} `); 
     };
 
     logging = new Array();
