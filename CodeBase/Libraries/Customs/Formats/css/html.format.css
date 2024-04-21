@@ -30,3 +30,15 @@
 .array-label{
     color:red;
 }
+
+.variable-name{
+    color:purple; 
+}
+
+.variable{
+    color:red;
+}
+
+.variable-group{
+    font-size: 30px;
+}

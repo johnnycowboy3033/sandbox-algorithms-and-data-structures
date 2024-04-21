@@ -43,6 +43,23 @@ class HtmlFormat{
         this.builder(`<p> ${htmlIndex} ${htmlElement} ${htmlLabel} </p>`);
     }
 
+    variables(variableNames,variables){
+
+        if(variableNames.length == variables.length){
+            for(let i = 0; i < variables.length; i++){
+
+                let htmlVariableName = `<span class="variable-name"> ${variableNames[i]} </span>`;
+                let htmlVariable = `<span class="variable"> ${variables[i]}</span>`;
+                this.builder(`<p class="variable-group" > ${ htmlVariableName } = ${htmlVariable}  </p>`);
+
+            }
+
+        }else{
+            //TODO throw error (Variable Names and Variable must be the same length)
+        }
+
+    }
+
     newLine(){
         this._pageWrite = this._pageWrite + "<br>";
     }

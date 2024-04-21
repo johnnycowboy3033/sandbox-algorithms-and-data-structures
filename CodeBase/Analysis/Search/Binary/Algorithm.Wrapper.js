@@ -20,14 +20,13 @@ $(function() {
             format.newLine();
         });
 
-        format.subsection (`Index ${x} of the  target value: ${result} `); 
+        format.variables(['Index of the Target','Target Value'],[x, result] ); 
     };
 
     logging = new Array();
     counter = 0;
     Algorithm(new Array(0, 10, 20, 30, 40, 50, 60),0);
 
-    /*
     logging = new Array();
     counter = 0;
     Algorithm(new Array(0, 10, 20, 30, 40, 50, 60),30);
@@ -44,7 +43,6 @@ $(function() {
     logging = new Array();
     counter = 0;
     Algorithm(new Array(-1, 10, 20, 30, 40, 50, 60),-1);
-    */
    
     $("#logging").html(format.pageWrite);
 
