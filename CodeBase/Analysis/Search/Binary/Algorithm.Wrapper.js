@@ -3,14 +3,48 @@ $(function() {
     let format = new HtmlFormat();
     let data = new DataComponent(['Head','Midpoint','Tail'],format);
 
-    format.title("Title");
-    format.section("Section");
-    format.subsection("Sub Section");
-    format.paragraph(`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum`);
+    function Algorithm(arr,x){
+        let result = binarySearch(arr, x);
 
-    data.printPointers([3,7,9,12,15,23,45],[0, 3, 5]);
+        format.title(  `Boundary Condition :  ${x}`);
 
-    format.manyNewLine(6);
+        format.newLine();
+    
+        format.section('STEP THOUGH THE CODE');
+
+        logging.forEach((element) => {
+            format.subsection( `COUNT = ${element.counter}` );
+            format.paragraph( JSON.stringify (element) );
+    
+            data.printPointers(arr,[element.header,element.midpoint,element.tail]);
+            format.newLine();
+        });
+
+        //format.subSection (`Index of the ${x} target value: ${result} `); 
+    };
+
+    logging = new Array();
+    counter = 0;
+    Algorithm(new Array(0, 10, 20, 30, 40, 50, 60),0);
+
+    /*
+    logging = new Array();
+    counter = 0;
+    Algorithm(new Array(0, 10, 20, 30, 40, 50, 60),30);
+
+
+    logging = new Array();
+    counter = 0;
+    Algorithm(new Array(0, 10, 20, 30, 40, 50, 60),60);
+
+    logging = new Array();
+    counter = 0;
+    Algorithm(new Array(0, 10, 20, 30, 40, 50, 60),100);
+
+    logging = new Array();
+    counter = 0;
+    Algorithm(new Array(-1, 10, 20, 30, 40, 50, 60),-1);
+    */
    
     $("#logging").html(format.pageWrite);
 

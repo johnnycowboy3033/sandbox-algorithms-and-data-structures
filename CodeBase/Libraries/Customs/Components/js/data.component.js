@@ -20,7 +20,20 @@ class DataComponent{
 
             if(this.isLabelIndex(labelIndex, index)){
 
-                label = label + `<--- ${ this._labels[this.findLabelIndex(labelIndex, index)]}`;
+                label = label + `<---`;
+
+                for(var i = 0; i < labelIndex.length; i++){
+
+                    if(index == labelIndex[i]){
+
+                        label = label + ` ${ this._labels[labelIndex[i]]}`;
+
+                    }
+
+                    label
+
+                }
+
 
             }
 
