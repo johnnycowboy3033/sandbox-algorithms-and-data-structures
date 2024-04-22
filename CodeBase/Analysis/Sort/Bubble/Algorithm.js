@@ -16,8 +16,7 @@ function bubbleSort(arr) {
 
     for (var mainIndex = 0; mainIndex < arr.length; mainIndex++) {
 
-        logging.push({  Action:"ITERATION",
-        message:"========================================================="});
+        logging.push({  Action:"ITERATION"});
 
         // Last i elements are already in place  
         for (var offset = 0; offset < (arr.length - mainIndex - 1); offset++) {
@@ -50,3 +49,5 @@ function bubbleSort(arr) {
     // Print the sorted array
     return arr;
 }
+
+ 
