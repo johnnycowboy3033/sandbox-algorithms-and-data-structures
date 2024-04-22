@@ -18,7 +18,7 @@ $(function() {
             }
             if(element.Action == 'CHECK_SWAPPING'){
               format.paragraph( JSON.stringify (element) );
-              //printPointers(element.offset, element.offsetPlusOne, element.presentArray) ;
+              
               data.printPointers(element.presentArray,[element.offset, element.offsetPlusOne]);
             }
 

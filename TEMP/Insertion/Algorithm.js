@@ -5,7 +5,8 @@ let insertionSort = (array) => {
 
     for (let i = 1; i < array.length; i++) {
 
-      logging.push({  Action:"ITERATION" });
+      logging.push({  Action:"ITERATION",
+                      message:`${i} =========================================================` });
 
       /*
       This is the element which be moved. This create element with not data so the elements to the left 
@@ -47,4 +48,3 @@ let insertionSort = (array) => {
   
     return array;
   };
- 
