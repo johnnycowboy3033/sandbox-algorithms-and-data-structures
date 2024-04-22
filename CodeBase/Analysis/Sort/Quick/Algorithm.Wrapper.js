@@ -2,9 +2,11 @@ $(function() {
 
     let format = new HtmlFormat();
     let util = new ConvertUtil(format);
+    let data = new DataComponent([],format);
 
     function Algorithm(arr){
         format.title(  `[ ${arr.join()} ]`);
+        data.printPointers(arr ,[]);
 
         quickSort(arr, 0, arr.length - 1);
         format.newLine();

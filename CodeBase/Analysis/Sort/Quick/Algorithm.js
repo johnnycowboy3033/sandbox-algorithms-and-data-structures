@@ -8,8 +8,8 @@ function partition(arr, low, high) {
     // Choosing the pivot
     let pivot = arr[high];
 
-    logging.push({  Action:"MESSAGE",
-                      message:`PIVOT [${high}] = ${pivot}` });
+    logging.push({  Action:"VARIABLES",
+                    PIVOT: `[${high}] = ${pivot}` });
   
     // Index of smaller element and indicates the right position of pivot found so far
     let i = low - 1;
@@ -70,8 +70,8 @@ function quickSort(arr, low, high) {
         message:`QUICK SORT METHOD`,
         counter:counter++ });
 
-        logging.push({  Action:"MESSAGE",
-             message:`Partition Index: ${pi}` });
+        logging.push({  Action:"VARIABLES",
+                        'Partition Index':pi });
   
         // Separately sort elements before partition and after partition
         quickSort(arr, low, pi - 1);
