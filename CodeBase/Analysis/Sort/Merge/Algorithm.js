@@ -4,7 +4,8 @@ let counter = 0;
 function merge(leftArray, rightArray) {
 
   logging.push({  Action:"MERGE_INIT",
-                      message:`${counter++} =========================== MERGE METHOD ===========================` });
+                      message:`MERGE METHOD `,
+                      counter:counter++ });
 
   logging.push({  Action:"RECURSIVE_CALLS",message:`LEFT ARRAY : ${ leftArray }`, ArrayElements:leftArray });   
   logging.push({  Action:"RECURSIVE_CALLS",message:`RIGHT ARRAY : ${ rightArray }`, ArrayElements:rightArray  });  
@@ -33,7 +34,8 @@ function merge(leftArray, rightArray) {
   function mergeSort(arr) {
 
     logging.push({  Action:"MERGE_SORT_INIT",
-                      message:`${counter++} =========================== MERGE SORT METHOD ===========================` });
+                      message:`MERGE SORT METHOD`,
+                      counter:counter++ });
 
     logging.push({  Action:"STOP_CONDITION",
                       message:`ARRAY LENGTH ${arr.length}. Is the array SORTED ? ${arr.length <= 1}` });                 
@@ -59,4 +61,4 @@ function merge(leftArray, rightArray) {
 
     return merge(left, right)
   }
-  
+ 

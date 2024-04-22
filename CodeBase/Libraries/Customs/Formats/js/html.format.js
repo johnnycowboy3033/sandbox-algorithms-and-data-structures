@@ -36,6 +36,14 @@ class HtmlFormat{
         this.builder("<p class='paragraph' >"+valueParagraph+"</p>");
     }
 
+    method(methodTitle,methodCounter){
+
+        let title = `<span class="method-title"> ${methodTitle}</span>`;
+        let counter = `<span class="method-counter" > # ${methodCounter} </span>`;
+        this.builder(`<p class="method" > ${title} ${counter} </p>`);
+
+    }
+
     arrayElement(index,element,label){
         let htmlIndex = `<span class='array-index' > [ ${index} ] = </span>`;
         let htmlElement = `<span class='array-element' > ${element} </span>`;

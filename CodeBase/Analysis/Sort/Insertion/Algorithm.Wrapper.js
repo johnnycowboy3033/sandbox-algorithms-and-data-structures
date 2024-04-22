@@ -14,14 +14,28 @@ $(function() {
         logging.forEach((element) => {
 
             if(element.Action == 'ITERATION'){
-              format.subsection(element.message);
+              format.section(element.Action);
             }else{
-                format.paragraph( JSON.stringify (element) );
-                format.paragraph(` CURRENT [ ${ element.currentIndex } ] = ${element.currentElement}`);
-  
-                //printPointers(element.Action, element.currentIndex,element.lastIndex,element.presentArray) ;
 
-                data.printPointers(element.presentArray,[element.currentIndex,element.lastIndex]);
+                format.paragraph( JSON.stringify (element) );
+
+                let hideElements = undefined;
+
+                if(element.Action == 'HOLE'){
+                    format.paragraph(` ${element.Action} [ ${ element.currentIndex } ] = ${element.currentElement}`);
+                    hideElements = element.currentIndex;
+                }
+
+                if(element.Action == 'MOVE'){
+                    format.paragraph(` ${element.Action} Value = ${element.currentElement}`);
+                    hideElements = element.lastIndex;
+                }
+
+                if(element.Action == 'INSERT'){
+                    format.paragraph(` ${element.Action} [ ${ element.lastIndex } ] = ${element.currentElement}`);
+                }
+
+                data.printPointers(element.presentArray,[element.currentIndex,element.lastIndex],hideElements);
             }
 
             format.newLine();

@@ -12,7 +12,7 @@ class DataComponent{
     set label(value){this._labels = value;}
 
 
-    printPointers(elements, labelIndex){
+    printPointers(elements, labelIndex,hideElements){
 
         for( let index = 0; index < elements.length; index++){
 
@@ -37,7 +37,17 @@ class DataComponent{
 
             }
 
-            this._format.arrayElement(index, elements[index], label);
+            if(typeof hideElements == 'undefined'){
+                this._format.arrayElement(index, elements[index], label);
+            }else{
+                if(hideElements == index){
+                    this._format.arrayElement(index, '[ ]', label); 
+                }else{
+                    this._format.arrayElement(index, elements[index], label);
+                }
+            }
+
+            
         }
 
     }

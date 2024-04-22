@@ -1,8 +1,9 @@
 // Function to partition the array and return the partition index
 function partition(arr, low, high) {
 
-    logging.push({  Action:"PARTITION_INIT",
-                      message:`${counter++} =========================== PARTITION METHOD ===========================` });
+   logging.push({  Action:"PARTITION_INIT",
+                      message:`PARTITION METHOD`,
+                      counter:counter++ });
 
     // Choosing the pivot
     let pivot = arr[high];
@@ -20,9 +21,11 @@ function partition(arr, low, high) {
             i++;
             logging.push({  Action:"MESSAGE",
                       message:`SWAP ELEMENTS ${arr} ` });
+
             [arr[i], arr[j]] = [arr[j], arr[i]]; // Swap elements
             logging.push({  Action:"MESSAGE",
                       message:`SWAP ELEMENTS [${i}]  [${j}]` });
+
             logging.push({  Action:"MESSAGE",
                       message:`SWAP ELEMENTS ${arr} ` });
         }
@@ -43,6 +46,7 @@ function partition(arr, low, high) {
     return i + 1; // Return the partition index
 }
 
+ 
 
 let logging;
 let counter = 0;
@@ -50,18 +54,21 @@ let counter = 0;
 // The main function that implements QuickSort
 function quickSort(arr, low, high) {
 
-    logging.push({  Action:"QUICK_SORT_INIT",
-                      message:`${counter++} =========================== QUICK SORT METHOD ===========================` });
+    logging.push({  Action:"PARTITION_INIT",
+                      message:`QUICK SORT METHOD`,
+                      counter:counter++ });
 
-    logging.push({  Action:"MESSAGE",
-             message:`LOW = ${low}  ,HIGH = ${high}` });
+    logging.push({  Action:"VARIABLES",
+                    LOW: low,
+                    HIGH : high});
 
     if (low < high) {
         // pi is the partitioning index, arr[pi] is now at the right place
         let pi = partition(arr, low, high);
 
         logging.push({  Action:"QUICK_SORT_INIT",
-                      message:`${counter++} ==== QUICK SORT METHOD ====` });
+        message:`QUICK SORT METHOD`,
+        counter:counter++ });
 
         logging.push({  Action:"MESSAGE",
              message:`Partition Index: ${pi}` });

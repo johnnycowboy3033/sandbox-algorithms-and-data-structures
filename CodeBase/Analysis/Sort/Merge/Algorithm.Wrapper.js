@@ -1,11 +1,9 @@
 $(function() {
 
-    let format = new Format();
-
-
+    let format = new HtmlFormat();
 
     function Algorithm(arr){
-        format.title(  `------------ ARRAY : [ ${arr.join()} ] ------------ `);
+        format.title(  `[ ${arr.join()} ]`);
 
         let results = mergeSort(arr);
         format.newLine();
@@ -15,19 +13,19 @@ $(function() {
         logging.forEach((element) => {
 
             if(element.Action == 'MERGE_INIT' || element.Action == 'MERGE_SORT_INIT' ){
-              format.subSection(element.message);
+              format.method(element.message,element.counter);
             }
 
             if(element.Action == 'STOP_CONDITION' ){
-                format.loggingValue(element.message);
+                format.paragraph(element.message);
             }
 
             if(element.Action == 'RECURSIVE_CALLS' ){
-                format.loggingValue(element.message);
+                format.paragraph(element.message);
             }
 
             if(element.Action == 'BASE_CASE' ){
-                format.loggingValue(element.message);
+                format.paragraph(element.message);
             }
 
             format.newLine();
@@ -40,6 +38,7 @@ $(function() {
      Algorithm(new Array(6,5,3,1,8,7,2,4) );
 
 
+   
     $("#logging").html(format.pageWrite);
 
 });

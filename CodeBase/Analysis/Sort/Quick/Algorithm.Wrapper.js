@@ -1,9 +1,10 @@
 $(function() {
 
-    let format = new Format();
+    let format = new HtmlFormat();
+    let util = new ConvertUtil(format);
 
     function Algorithm(arr){
-        format.title(  `------------ ARRAY : [ ${arr.join()} ] ------------ `);
+        format.title(  `[ ${arr.join()} ]`);
 
         quickSort(arr, 0, arr.length - 1);
         format.newLine();
@@ -13,15 +14,21 @@ $(function() {
         logging.forEach((element) => {
 
             if(element.Action == 'PARTITION_INIT' || element.Action == 'QUICK_SORT_INIT' ){
-                format.subSection(element.message);
+                format.method(element.message,element.counter);
             }
 
             if(element.Action == 'MESSAGE'){
-                format.loggingValue(element.message);
+                format.paragraph(element.message);
+            }
+
+            if(element.Action == 'VARIABLES'){
+                util.variables(element);
             }
 
             format.newLine();
         });
+
+        format.section(` SORTED ARRAY : ${arr}`);
     };
 
     logging = new Array();
@@ -29,9 +36,8 @@ $(function() {
     Algorithm(new Array(10, 7, 8, 9, 1, 5) );
 
 
-
-
-
+    format.manyNewLine(6);
+   
     $("#logging").html(format.pageWrite);
 
 });

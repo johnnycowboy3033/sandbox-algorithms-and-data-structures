@@ -1,4 +1,4 @@
-describe("Bubble Sort Algorithm", function() {
+describe("Merge Sort Algorithm", function() {
 
     it("(JASMINE SETUP) Should be true because this test method is for testing the Jasmine setup", function() {
 
@@ -7,7 +7,8 @@ describe("Bubble Sort Algorithm", function() {
 
     });
 
-    xit("(LOGGER SETUP) Should be true because this test method is for testing the Logger Array is setup", function() {
+
+    it("(LOGGER SETUP) Should be true because this test method is for testing the Logger Array is setup", function() {
 
         console.log("=== LOGGER SETUP ===");
 
@@ -33,7 +34,7 @@ describe("Bubble Sort Algorithm", function() {
 
     });
 
-    xit("merge - Should be ", function() {
+    it("merge - Should be [2,3,8,5,9,4] because the combination is SORT [2,3], LEFT [8,5] and RIGHT [9,4] arrays", function() {
 
         console.log("=== LOGGER SETUP ===");
 
@@ -43,9 +44,10 @@ describe("Bubble Sort Algorithm", function() {
         logging = new Array();
         let results = merge(arrLeft, arrRight);
 
-        expect(results).toEqual([1,2,3,4,5,7,8,9]);
+        expect(results).toEqual([2,3,8,5,9,4]);
 
     });
+
     
 
   });
