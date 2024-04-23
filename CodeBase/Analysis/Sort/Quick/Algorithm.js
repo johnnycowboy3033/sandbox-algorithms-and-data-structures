@@ -25,33 +25,42 @@ function partition(arr, low, high) {
     let i = low - 1;
   
     for (let j = low; j <= high - 1; j++) {
+
+        logging.push({  Action:"DIVIDER" });
         // If current element is smaller than the pivot
+        logging.push({  Action:"MESSAGE",
+                        message:`Is current element [${j}] = ${arr[j]} is smaller than the pivot ${pivot} ? ${(arr[j] < pivot)}` });
         if (arr[j] < pivot) {
             // Increment index of smaller element
             i++;
-            logging.push({  Action:"MESSAGE",
-                      message:`SWAP ELEMENTS ${arr} ` });
 
+            logging.push({  Action:"MESSAGE",
+                        message:`${arr.join()}` });
             [arr[i], arr[j]] = [arr[j], arr[i]]; // Swap elements
-            logging.push({  Action:"MESSAGE",
-                      message:`SWAP ELEMENTS [${i}]  [${j}]` });
 
             logging.push({  Action:"MESSAGE",
-                      message:`SWAP ELEMENTS ${arr} ` });
+                        message: ` ${[arr[i], arr[j]]} = ${[arr[j], arr[i]]}` });
+
+            logging.push({  Action:"MESSAGE",
+                        message:`${arr.join()}` });
+
+
+            logging.push({  
+                Action:"ARRAY",
+                presentArray:arr,
+                pi:-1,
+                low:-1,
+                high:-1
+            });
         }
         
     }
 
-    logging.push({  Action:"MESSAGE",
-                      message:`SWAP PIVOTS ${arr} ` });
-  
     [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]]; // Swap pivot to its correct position
 
     logging.push({  Action:"MESSAGE",
-                      message:`SWAP PIVOTS [${i+1}]  [${high}]` });
+                        message:`Swap pivot to its correct position ${[arr[i + 1], arr[high]]} = ${[arr[high], arr[i + 1]]}` });
 
-    logging.push({  Action:"MESSAGE",
-                      message:`SWAP PIVOTS ${arr} ` });
 
     return i + 1; // Return the partition index
 }
@@ -71,6 +80,8 @@ function quickSort(arr, low, high) {
     logging.push({  Action:"VARIABLES",
                     LOW: low,
                     HIGH : high});
+
+    logging.push({  Action:"DIVIDER" });
 
     logging.push({  Action:"ARRAY",
                     presentArray:arr,

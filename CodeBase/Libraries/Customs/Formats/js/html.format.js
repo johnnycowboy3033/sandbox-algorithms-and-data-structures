@@ -73,12 +73,13 @@ class HtmlFormat{
     }
 
     manyNewLine(times){
-
         for( var index = 0 ; index < times; index++){
             this.newLine();
         }
+    }
 
-
+    divider(){
+        this.builder(`<p class="divider" ></p>`);
     }
 
     get pageWrite(){ return this._pageWrite}

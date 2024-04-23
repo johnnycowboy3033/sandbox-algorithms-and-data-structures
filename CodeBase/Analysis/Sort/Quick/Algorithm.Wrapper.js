@@ -31,6 +31,12 @@ $(function() {
                 data.printPointers(element.presentArray,[element.pi,element.low, element.high]);
             }
 
+            if(element.Action == 'DIVIDER'){
+                format.divider();
+            }
+
+            
+
 
             format.newLine();
         });
