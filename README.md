@@ -45,4 +45,6 @@ To run the applcaiton Right Click on the **Algorithm.html** and select **Open wi
 * [Bubble Sort algorithm using JavaScript - geeksforgeeks.org](https://www.geeksforgeeks.org/bubble-sort-algorithms-by-using-javascript/)
 * [Insertion Sort – Data Structure and Algorithm Tutorials - geeksforgeeks.org](https://www.geeksforgeeks.org/insertion-sort/)
 * [Merge Sort - JavaScript - doabledanny.com](https://www.doabledanny.com/merge-sort-javascript)
-* [QuickSort – Data Structure and Algorithm Tutorials - geeksforgeeks.org](https://www.geeksforgeeks.org/quick-sort/)
+* [Quick Sort – Data Structure and Algorithm Tutorials - geeksforgeeks.org](https://www.geeksforgeeks.org/quick-sort/)
+* [Selection Sort - Stable Selection Sort  - geeksforgeeks.org](https://www.geeksforgeeks.org/stable-selection-sort/)
+* [Selection sort in 3 minutes - Michael Sambol - YouTube.com](https://www.youtube.com/watch?v=g-PGLbMth_g)

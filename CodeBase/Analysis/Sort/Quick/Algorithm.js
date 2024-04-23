@@ -15,7 +15,7 @@ function partition(arr, low, high) {
 
     logging.push({  
                     Action:"ARRAY",
-                    presentArray:arr,
+                    presentArray:arr.slice(),
                     pi:pivot,
                     low:low,
                     high:high
@@ -23,6 +23,8 @@ function partition(arr, low, high) {
   
     // Index of smaller element and indicates the right position of pivot found so far
     let i = low - 1;
+    logging.push({  Action:"MESSAGE",
+    message:`Index of smaller element and indicates the right position of pivot found so far. i = low - 1, low = ${low} so i = ${i}` });
   
     for (let j = low; j <= high - 1; j++) {
 
@@ -33,25 +35,25 @@ function partition(arr, low, high) {
         if (arr[j] < pivot) {
             // Increment index of smaller element
             i++;
+            logging.push({  Action:"MESSAGE",
+                        message:`Increment index of smaller element i = ${i}` });
 
             logging.push({  Action:"MESSAGE",
-                        message:`${arr.join()}` });
-            [arr[i], arr[j]] = [arr[j], arr[i]]; // Swap elements
+                            message:`${arr.join()}` });
+                            [arr[i], arr[j]] = [arr[j], arr[i]]; // Swap elements
 
             logging.push({  Action:"MESSAGE",
-                        message: ` ${[arr[i], arr[j]]} = ${[arr[j], arr[i]]}` });
+                             message: ` ${[arr[i], arr[j]]} = ${[arr[j], arr[i]]}` });
 
             logging.push({  Action:"MESSAGE",
-                        message:`${arr.join()}` });
+                            message:`${arr.join()}` });
 
 
-            logging.push({  
-                Action:"ARRAY",
-                presentArray:arr,
-                pi:-1,
-                low:-1,
-                high:-1
-            });
+            logging.push({  Action:"ARRAY",
+                            presentArray:arr.slice(),
+                            pi:-1,
+                            low:-1,
+                            high:-1});
         }
         
     }
@@ -60,6 +62,8 @@ function partition(arr, low, high) {
 
     logging.push({  Action:"MESSAGE",
                         message:`Swap pivot to its correct position ${[arr[i + 1], arr[high]]} = ${[arr[high], arr[i + 1]]}` });
+
+    logging.push({ Action:"ARRAY",presentArray:arr.slice(),pi:-1,low:-1,high:-1});
 
 
     return i + 1; // Return the partition index
@@ -84,7 +88,7 @@ function quickSort(arr, low, high) {
     logging.push({  Action:"DIVIDER" });
 
     logging.push({  Action:"ARRAY",
-                    presentArray:arr,
+                    presentArray:arr.slice(),
                     pi:-1,
                     low:low,
                     high:high});
@@ -101,13 +105,13 @@ function quickSort(arr, low, high) {
                         'Partition Index':pi });
 
         logging.push({  Action:"ARRAY",
-                        presentArray:arr,
+                        presentArray:arr.slice(),
                         pi:-1,
                         low:low,
                         high:pi-1
                      });
         logging.push({  Action:"ARRAY",
-                        presentArray:arr,
+                        presentArray:arr.slice(),
                         pi:-1,
                         low:pi+1,
                         high:high
@@ -117,5 +121,8 @@ function quickSort(arr, low, high) {
         // Separately sort elements before partition and after partition
         quickSort(arr, low, pi - 1);
         quickSort(arr, pi + 1, high);
+    }else{
+        logging.push({  Action:"MESSAGE",
+                        message:`DO NOT CALL Quick Sort Method.` });
     }
 }

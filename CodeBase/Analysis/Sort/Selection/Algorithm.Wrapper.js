@@ -2,22 +2,19 @@ $(function() {
 
     let format = new HtmlFormat();
     let util = new ConvertUtil(format);
-    let data = new DataComponent(['Pivot','Low','High'],format);
+    let data = new DataComponent(['Minimum','Current'],format);
+
 
     function Algorithm(arr){
         format.title(  `[ ${arr.join()} ]`);
         data.printPointers(arr ,[]);
 
-        quickSort(arr, 0, arr.length - 1);
+        stableSelectionSort(arr, arr.length);
         format.newLine();
 
         format.section('STEP THOUGH THE CODE');
 
         logging.forEach((element) => {
-
-            if(element.Action == 'PARTITION_INIT' || element.Action == 'QUICK_SORT_INIT' ){
-                format.method(element.message,element.counter);
-            }
 
             if(element.Action == 'MESSAGE'){
                 format.paragraph(element.message);
@@ -28,15 +25,12 @@ $(function() {
             }
 
             if(element.Action == 'ARRAY'){
-                data.printPointers(element.presentArray,[element.pi,element.low, element.high]);
+                data.printPointers(element.presentArray,[element.minimum,element.current]);
             }
 
             if(element.Action == 'DIVIDER'){
                 format.divider();
             }
-
-            
-
 
             format.newLine();
         });
@@ -46,15 +40,10 @@ $(function() {
 
     logging = new Array();
     counter = 0;
-    Algorithm(new Array(10, 7, 8, 9, 1, 5) );
-
-    logging = new Array();
-    counter = 0;
-    Algorithm(new Array(10, 4, 8,  1, 5) );
+    Algorithm(new Array(2, 8, 5, 3, 9, 4, 1 ) );
 
 
     format.manyNewLine(6);
    
     $("#logging").html(format.pageWrite);
-
 });
