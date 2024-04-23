@@ -8,8 +8,18 @@ function partition(arr, low, high) {
     // Choosing the pivot
     let pivot = arr[high];
 
-    logging.push({  Action:"VARIABLES",
-                    PIVOT: `[${high}] = ${pivot}` });
+    logging.push({  
+                    Action:"VARIABLES",
+                    PIVOT: `[${high}] = ${pivot}` 
+                });
+
+    logging.push({  
+                    Action:"ARRAY",
+                    presentArray:arr,
+                    pi:pivot,
+                    low:low,
+                    high:high
+                });
   
     // Index of smaller element and indicates the right position of pivot found so far
     let i = low - 1;
@@ -54,20 +64,26 @@ let counter = 0;
 // The main function that implements QuickSort
 function quickSort(arr, low, high) {
 
-    logging.push({  Action:"PARTITION_INIT",
-                      message:`QUICK SORT METHOD`,
-                      counter:counter++ });
+    logging.push({  Action:"QUICK_SORT_INIT",
+                    message:`QUICK SORT METHOD (Before Partition Method)`,
+                    counter:counter++ });
 
     logging.push({  Action:"VARIABLES",
                     LOW: low,
                     HIGH : high});
+
+    logging.push({  Action:"ARRAY",
+                    presentArray:arr,
+                    pi:-1,
+                    low:low,
+                    high:high});
 
     if (low < high) {
         // pi is the partitioning index, arr[pi] is now at the right place
         let pi = partition(arr, low, high);
 
         logging.push({  Action:"QUICK_SORT_INIT",
-        message:`QUICK SORT METHOD`,
+        message:`QUICK SORT METHOD (After Partition Method)`,
         counter:counter++ });
 
         logging.push({  Action:"VARIABLES",
@@ -75,13 +91,13 @@ function quickSort(arr, low, high) {
 
         logging.push({  Action:"ARRAY",
                         presentArray:arr,
-                        pi:pi,
+                        pi:-1,
                         low:low,
                         high:pi-1
                      });
         logging.push({  Action:"ARRAY",
                         presentArray:arr,
-                        pi:pi,
+                        pi:-1,
                         low:pi+1,
                         high:high
                   });

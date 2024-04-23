@@ -31,6 +31,7 @@ $(function() {
                 data.printPointers(element.presentArray,[element.pi,element.low, element.high]);
             }
 
+
             format.newLine();
         });
 
