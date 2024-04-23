@@ -2,7 +2,7 @@ $(function() {
 
     let format = new HtmlFormat();
     let util = new ConvertUtil(format);
-    let data = new DataComponent([],format);
+    let data = new DataComponent(['Pivot','Low','High'],format);
 
     function Algorithm(arr){
         format.title(  `[ ${arr.join()} ]`);
@@ -25,6 +25,10 @@ $(function() {
 
             if(element.Action == 'VARIABLES'){
                 util.variables(element);
+            }
+
+            if(element.Action == 'ARRAY'){
+                data.printPointers(element.presentArray,[element.pi,element.low, element.high]);
             }
 
             format.newLine();

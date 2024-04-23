@@ -72,6 +72,20 @@ function quickSort(arr, low, high) {
 
         logging.push({  Action:"VARIABLES",
                         'Partition Index':pi });
+
+        logging.push({  Action:"ARRAY",
+                        presentArray:arr,
+                        pi:pi,
+                        low:low,
+                        high:pi-1
+                     });
+        logging.push({  Action:"ARRAY",
+                        presentArray:arr,
+                        pi:pi,
+                        low:pi+1,
+                        high:high
+                  });
+
   
         // Separately sort elements before partition and after partition
         quickSort(arr, low, pi - 1);
